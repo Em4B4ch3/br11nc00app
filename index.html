@@ -251,10 +251,38 @@
     outline: none;
   }
 
+  /* Banner Adsterra superior */
+  .adsterra-banner-top{
+    width:100%;
+    min-height:50px;
+    height:50px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    background:var(--bg);
+    flex:0 0 50px;
+  }
+  .adsterra-banner-top iframe{
+    max-width:100%!important;
+  }
+
 </style>
 </head>
 <body>
 <div class="app">
+  <div class="adsterra-banner-top">
+    <script type="text/javascript">
+      atOptions = {
+        'key' : 'd09954b55fe1c4f575e1edd707d1f139',
+        'format' : 'iframe',
+        'height' : 50,
+        'width' : 320,
+        'params' : {}
+      };
+    </script>
+    <script type="text/javascript" src="https://www.highperformanceformat.com/d09954b55fe1c4f575e1edd707d1f139/invoke.js"></script>
+  </div>
   <div class="content">
     <section id="tab-ultimo" class="tab active">
       <div class="phone">
@@ -523,6 +551,18 @@
 
   const ULTIMOS = [
     {
+      nro:"1366", fecha:"Domingo 09/08/2026", fechaCorta:"09/08/2026", proximo:"Domingo 16/08/2026", pozo:"$ 280.000.000",
+      brinco:["01","04","06","12","23","27"], junior:["19","24","26","27","32","34"],
+      premiosBrinco:[
+        {aciertos:"6", ganadores:"Vacante*", premio:"-"},
+        {aciertos:"5", ganadores:"24", premio:"$ 265.462,96"},
+        {aciertos:"4", ganadores:"435", premio:"$ 4.833,26"},
+        {aciertos:"3", ganadores:"5.580", premio:"$ 1.500,00"}
+      ],
+      premiosJunior:[{aciertos:"5", ganadores:"1", premio:"$ 31.845.559,46", pozo:"$ 31.845.559,46"}],
+      nota:"*Dicho pozo pasa a incrementar el primer premio del concurso siguiente según artículo 33º del reglamento."
+    },
+    {
       nro:"1365", fecha:"Domingo 02/08/2026", fechaCorta:"02/08/2026", proximo:"Domingo 09/08/2026", pozo:"$ 280.000.000",
       brinco:["00","03","04","09","27","39"], junior:["06","12","17","18","26","34"],
       premiosBrinco:[
@@ -633,18 +673,6 @@
         {aciertos:"3", ganadores:"5.784", premio:"$ 1.500,00"}
       ],
       premiosJunior:[{aciertos:"5", ganadores:"6", premio:"$ 6.081.755,40", pozo:"$ 36.490.532,40"}],
-      nota:"*Dicho pozo pasa a incrementar el primer premio del concurso siguiente según artículo 33º del reglamento."
-    },
-    {
-      nro:"1356", fecha:"Domingo 31/05/2026", fechaCorta:"31/05/2026", proximo:"Domingo 07/06/2026", pozo:"$ 915.000.000",
-      brinco:["06","10","11","19","27","30"], junior:["07","11","13","16","26","34"],
-      premiosBrinco:[
-        {aciertos:"6", ganadores:"Vacante*", premio:"-"},
-        {aciertos:"5", ganadores:"19", premio:"$ 308.559,03"},
-        {aciertos:"4", ganadores:"555", premio:"$ 3.485,88"},
-        {aciertos:"3", ganadores:"6.507", premio:"$ 1.200,00"}
-      ],
-      premiosJunior:[{aciertos:"5", ganadores:"12", premio:"$ 2.441.992,54", pozo:"$ 29.303.910,43"}],
       nota:"*Dicho pozo pasa a incrementar el primer premio del concurso siguiente según artículo 33º del reglamento."
     }
   ];
