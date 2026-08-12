@@ -251,37 +251,95 @@
     outline: none;
   }
 
-  /* Banner Adsterra superior */
-  .adsterra-banner-top{
+  /* =========================================================
+     BANNER SUPERIOR ADSTERRA 320x50 - VISIBLE Y PROTEGIDO
+     Ubicado arriba, sin tocar resultados, jugadas ni navegación.
+     ========================================================= */
+  .adsterra-banner{
     width:100%;
-    min-height:50px;
     height:50px;
+    min-height:50px;
     display:flex;
     align-items:center;
     justify-content:center;
     overflow:hidden;
-    background:var(--bg);
+    background:#fff;
+    border-bottom:1px solid rgba(0,0,0,.08);
     flex:0 0 50px;
+    z-index:10000;
   }
-  .adsterra-banner-top iframe{
-    max-width:100%!important;
+  .adsterra-banner-inner{
+    width:320px;
+    height:50px;
+    max-width:100%;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:transparent;
   }
 
 </style>
 </head>
 <body>
 <div class="app">
-  <div class="adsterra-banner-top">
-    <script type="text/javascript">
-      atOptions = {
-        'key' : 'd09954b55fe1c4f575e1edd707d1f139',
-        'format' : 'iframe',
-        'height' : 50,
-        'width' : 320,
-        'params' : {}
-      };
-    </script>
-    <script type="text/javascript" src="https://www.highperformanceformat.com/d09954b55fe1c4f575e1edd707d1f139/invoke.js"></script>
+  <div class="adsterra-banner" aria-label="Publicidad">
+    <div class="adsterra-banner-inner">
+      <script>
+        /* Protección simple en el HTML principal:
+           bloquea intentos de popup/redirección que no nacen de una acción del usuario sobre el banner. */
+        (function(){
+          try{
+            if(window.__brincoAdGuardInstalled) return;
+            window.__brincoAdGuardInstalled = true;
+            var lastAdUserAction = 0;
+            var nativeOpen = window.open ? window.open.bind(window) : null;
+
+            function markAdAction(){ lastAdUserAction = Date.now(); }
+
+            document.addEventListener("pointerdown", function(e){
+              if(e.target && e.target.closest && e.target.closest(".adsterra-banner")) markAdAction();
+            }, true);
+            document.addEventListener("touchstart", function(e){
+              if(e.target && e.target.closest && e.target.closest(".adsterra-banner")) markAdAction();
+            }, true);
+            document.addEventListener("mousedown", function(e){
+              if(e.target && e.target.closest && e.target.closest(".adsterra-banner")) markAdAction();
+            }, true);
+            document.addEventListener("click", function(e){
+              if(e.target && e.target.closest && e.target.closest(".adsterra-banner")) markAdAction();
+            }, true);
+
+            window.open = function(url, target, features){
+              var vieneDeToqueReal = (Date.now() - lastAdUserAction) < 1800;
+              if(!vieneDeToqueReal){
+                try{
+                  var t = document.getElementById("toast");
+                  if(t){
+                    t.textContent = "Publicidad emergente bloqueada";
+                    t.classList.add("show");
+                    setTimeout(function(){ t.classList.remove("show"); }, 1800);
+                  }
+                }catch(err){}
+                return null;
+              }
+              if(nativeOpen) return nativeOpen(url, target || "_blank", features);
+              return null;
+            };
+          }catch(e){}
+        })();
+      </script>
+      <script>
+        atOptions = {
+          'key' : 'd09954b55fe1c4f575e1edd707d1f139',
+          'format' : 'iframe',
+          'height' : 50,
+          'width' : 320,
+          'params' : {}
+        };
+      </script>
+      <script src="https://www.highperformanceformat.com/d09954b55fe1c4f575e1edd707d1f139/invoke.js"></script>
+    </div>
   </div>
   <div class="content">
     <section id="tab-ultimo" class="tab active">
